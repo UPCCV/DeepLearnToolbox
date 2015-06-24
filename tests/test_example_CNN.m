@@ -1,4 +1,5 @@
 function test_example_CNN
+%ÓÃmnistÊı¾İ¿â²âÊÔ¾í»ıÉñ¾­ÍøÂçĞÔÄÜ
 isOctave=0;
 addpath(genpath('../data/'));
 addpath(genpath('../CNN/'));
@@ -36,5 +37,5 @@ cnn = cnntrain(cnn, train_x, train_y, opts);%ÑµÁ·ÍøÂç£¬µÚÒ»¸ö²ÎÊıÎªÍøÂçµÄ½á¹¹£¬µ
 
 %plot mean squared error
 figure; plot(cnn.rL);%»æÖÆ¾ù·½Îó²îÇúÏß
-disp(er);%ÏÔÊ¾Îó²î
+disp([num2str(er*100) '% error']); %ÏÔÊ¾Îó²î
 assert(er<0.12, 'Too big error');

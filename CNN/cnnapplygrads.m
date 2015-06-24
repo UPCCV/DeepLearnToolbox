@@ -3,6 +3,7 @@ function net = cnnapplygrads(net, opts)
         if strcmp(net.layers{l}.type, 'c')%对于每个卷积层，
             for j = 1 : numel(net.layers{l}.a)%枚举改层的每个输出%枚举所有卷积核的net.layers{l}.k{ii}{j}
                 for ii = 1 : numel(net.layers{l - 1}.a)%枚举上层的每个输出
+                    % 这里没什么好说的，就是普通的权值更新的公式：W_new = W_old - alpha * de/dW（误差对权值导数）
                     net.layers{l}.k{ii}{j} = net.layers{l}.k{ii}{j} - opts.alpha * net.layers{l}.dk{ii}{j};
                 end
                 %修改偏置
