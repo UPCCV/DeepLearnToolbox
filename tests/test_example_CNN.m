@@ -34,7 +34,7 @@ cnn = cnnsetup(cnn, train_x, train_y);%设置网络，初始化卷积核、偏置,第一个参数为
 cnn = cnntrain(cnn, train_x, train_y, opts);%训练网络，第一个参数为网络的结构，第二个为训练的样本，第三个为训练的标签，第四个为附加选项
 
 [er, bad] = cnntest(cnn, test_x, test_y);%测试网络，第一个参数为网络的结构，第二个为测试的样本，第三个为测试的标签，返回错误率和错误的标签
-
+save 'cnnmodel' cnn;
 %plot mean squared error
 figure; plot(cnn.rL);%绘制均方误差曲线
 disp([num2str(er*100) '% error']); %显示误差
